@@ -23,7 +23,7 @@ namespace WebAPI
         {
             context.Ticket.Properties.IssuedUtc = DateTime.Now;
             context.Ticket.Properties.ExpiresUtc = DateTime.Now.AddMinutes(30);
-
+            context.SetToken(context.SerializeTicket());
             await base.CreateAsync(context);
         }
 
